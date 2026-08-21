@@ -40,18 +40,40 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  height: 64px;
+  height: 72px;
 }
 
 .logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.8rem;
-  letter-spacing: 0.15em;
-  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
 }
 
-.logo span { color: var(--red); }
+.logo-img {
+  height: 52px;
+  width: 52px;
+  object-fit: contain;
+  /* PNG is already transparent — looks sharp on black bg */
+  filter: drop-shadow(0 0 6px rgba(204,0,0,0.4));
+  transition: filter 0.25s, transform 0.25s;
+}
+
+.logo:hover .logo-img {
+  filter: drop-shadow(0 0 12px rgba(255,32,32,0.7));
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.15em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.logo-text .dot { color: var(--red); }
+.logo-text .red { color: var(--red); }
 
 nav a {
   color: var(--grey);
@@ -87,6 +109,20 @@ nav a:hover, nav a.active { color: var(--red-hot); }
     rgba(204,0,0,0.04) 32px
   );
   pointer-events: none;
+}
+
+.hero-logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 0 20px rgba(204,0,0,0.5));
+  animation: heroSpin 20s linear infinite;
+}
+
+@keyframes heroSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 .hero-eyebrow {
@@ -151,10 +187,98 @@ nav a:hover, nav a.active { color: var(--red-hot); }
   margin: 4px auto 0;
 }
 
-/* ── GALLERY ── */
+/* ══════════════════════════════════════════════
+   AUTO-SCROLLING INFINITE STRIP
+   ══════════════════════════════════════════════ */
+.auto-strip-section {
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  border-bottom: 2px solid var(--red);
+  padding: 1.25rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left / right fade vignette */
+.auto-strip-section::before,
+.auto-strip-section::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.auto-strip-section::before {
+  left: 0;
+  background: linear-gradient(to right, var(--deep), transparent);
+}
+.auto-strip-section::after {
+  right: 0;
+  background: linear-gradient(to left, var(--deep), transparent);
+}
+
+.strip-track {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  animation: stripScroll 35s linear infinite;
+}
+
+/* Pause on hover */
+.auto-strip-section:hover .strip-track {
+  animation-play-state: paused;
+}
+
+@keyframes stripScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.strip-item {
+  width: 260px;
+  height: 170px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.strip-item:hover { border-color: var(--red); }
+
+.strip-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s;
+}
+
+.strip-item:hover img { transform: scale(1.08); }
+
+/* Placeholder in strip */
+.strip-item .strip-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a1010 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: var(--grey);
+}
+.strip-item .strip-placeholder svg { width: 36px; height: 36px; opacity: 0.35; }
+.strip-item .strip-placeholder span { font-size: 0.7rem; letter-spacing: 0.15em; opacity: 0.45; text-transform: uppercase; }
+
+/* ══════════════════════════════════════════════
+   FULL GRID GALLERY
+   ══════════════════════════════════════════════ */
 #gallery {
   padding: 4rem 2rem;
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -171,12 +295,13 @@ nav a:hover, nav a.active { color: var(--red-hot); }
   border: 1px solid var(--border);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.25s, border-color 0.25s;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 
 .gallery-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: var(--red);
+  box-shadow: 0 8px 24px rgba(204,0,0,0.25);
 }
 
 .gallery-item img {
@@ -189,7 +314,6 @@ nav a:hover, nav a.active { color: var(--red-hot); }
 
 .gallery-item:hover img { transform: scale(1.06); }
 
-/* Placeholder block shown when no real image */
 .gallery-item .placeholder {
   width: 100%;
   height: 100%;
@@ -217,9 +341,9 @@ nav a:hover, nav a.active { color: var(--red-hot); }
 .gallery-item .caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  padding: 0.5rem 0.75rem;
-  background: linear-gradient(transparent, rgba(0,0,0,0.85));
-  font-size: 0.82rem;
+  padding: 0.6rem 0.85rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.88));
+  font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--white);
@@ -234,7 +358,7 @@ nav a:hover, nav a.active { color: var(--red-hot); }
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.92);
+  background: rgba(0,0,0,0.93);
   z-index: 999;
   align-items: center;
   justify-content: center;
@@ -249,6 +373,15 @@ nav a:hover, nav a.active { color: var(--red-hot); }
   max-height: 80vh;
   border: 2px solid var(--red);
   object-fit: contain;
+  box-shadow: 0 0 60px rgba(204,0,0,0.3);
+}
+
+#lb-caption {
+  margin-top: 0.75rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.15em;
+  color: var(--grey);
 }
 
 #lightbox .lb-close {
@@ -259,15 +392,41 @@ nav a:hover, nav a.active { color: var(--red-hot); }
   color: var(--white);
   cursor: pointer;
   letter-spacing: 0.1em;
+  transition: color 0.2s;
 }
 
 #lightbox .lb-close:hover { color: var(--red); }
+
+/* Prev / Next arrows */
+.lb-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: var(--grey);
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.lb-arrow:hover { color: var(--red-hot); }
+.lb-prev { left: 1.5rem; }
+.lb-next { right: 1.5rem; }
 
 /* ── ABOUT PAGE ── */
 .about-hero {
   background: var(--deep);
   text-align: center;
   padding: 4rem 2rem 3rem;
+}
+
+.about-hero .logo-img-hero {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 14px rgba(204,0,0,0.45));
 }
 
 .about-hero h1 {
@@ -328,10 +487,7 @@ nav a:hover, nav a.active { color: var(--red-hot); }
   transform: translateY(-3px);
 }
 
-.value-card .icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
+.value-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
 
 .value-card h3 {
   font-family: 'Bebas Neue', sans-serif;
@@ -363,15 +519,14 @@ footer a:hover { color: var(--red-hot); }
 
 /* ── UTILITY ── */
 .red { color: var(--red); }
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 2rem 0;
-}
+.divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
-  header { padding: 0 1rem; }
-  nav a { margin-left: 1rem; font-size: 0.85rem; }
+  header { padding: 0 1rem; height: 60px; }
+  .logo-img { height: 40px; width: 40px; }
+  .logo-text { font-size: 1.3rem; }
+  nav a { margin-left: 1rem; font-size: 0.82rem; }
   .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .strip-item { width: 180px; height: 120px; }
 }
