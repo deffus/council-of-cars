@@ -11,7 +11,10 @@
 
   <!-- ── HEADER ── -->
   <header>
-    <a class="logo" href="index.html">Council<span>.</span>of<span>Cars</span></a>
+    <a class="logo" href="index.html">
+      <img class="logo-img" src="logo_car.png" alt="Council of Cars logo" />
+      <span class="logo-text">Council<span class="dot">.</span>of<span class="red">Cars</span></span>
+    </a>
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About Us</a>
@@ -20,148 +23,38 @@
 
   <!-- ── HERO ── -->
   <section class="hero">
+    <img class="hero-logo" src="logo_car.png" alt="" aria-hidden="true" />
     <p class="hero-eyebrow">Est. Right Here, Right Now</p>
     <h1>Council<br><span>of Cars</span></h1>
     <p class="hero-sub">Fuel in our veins &nbsp;|&nbsp; Rubber on the road &nbsp;|&nbsp; No rules, just revs</p>
   </section>
 
-  <!-- ── GALLERY ── -->
+  <!-- ── AUTO-SCROLL STRIP ── -->
+  <!-- Filled automatically by JavaScript from GALLERY_IMAGES below -->
+  <div class="auto-strip-section" id="strip-section">
+    <div class="strip-track" id="strip-track">
+      <!-- JS populates this -->
+    </div>
+  </div>
+
+  <!-- ── FULL GRID GALLERY ── -->
   <section id="gallery">
     <div class="section-header">
       <h2 class="section-title">The Fleet</h2>
-      <p>Member rides — add your own PNG or JPG to the <code>images/</code> folder</p>
+      <p>Click any car to open fullscreen &nbsp;·&nbsp; Add your files to <code>images/</code> and list them below</p>
     </div>
-
-    <div class="gallery-grid">
-
-      <!-- SLOT 1 -->
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <!-- Replace src with your image, e.g. src="images/car01.jpg" -->
-        <img src="images/car01.jpg" alt="Member car 1"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="20" width="56" height="28" rx="4"/>
-            <path d="M14 20 l6-10 h24 l6 10"/>
-            <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
-          </svg>
-          <span>car01.jpg</span>
-        </div>
-        <div class="caption">Member Ride #1</div>
-      </div>
-
-      <!-- SLOT 2 -->
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="images/car02.jpg" alt="Member car 2"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="20" width="56" height="28" rx="4"/>
-            <path d="M14 20 l6-10 h24 l6 10"/>
-            <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
-          </svg>
-          <span>car02.jpg</span>
-        </div>
-        <div class="caption">Member Ride #2</div>
-      </div>
-
-      <!-- SLOT 3 -->
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="images/car03.jpg" alt="Member car 3"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="20" width="56" height="28" rx="4"/>
-            <path d="M14 20 l6-10 h24 l6 10"/>
-            <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
-          </svg>
-          <span>car03.jpg</span>
-        </div>
-        <div class="caption">Member Ride #3</div>
-      </div>
-
-      <!-- SLOT 4 -->
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="images/car04.jpg" alt="Member car 4"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="20" width="56" height="28" rx="4"/>
-            <path d="M14 20 l6-10 h24 l6 10"/>
-            <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
-          </svg>
-          <span>car04.jpg</span>
-        </div>
-        <div class="caption">Member Ride #4</div>
-      </div>
-
-      <!-- SLOT 5 -->
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="images/car05.jpg" alt="Member car 5"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="20" width="56" height="28" rx="4"/>
-            <path d="M14 20 l6-10 h24 l6 10"/>
-            <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
-          </svg>
-          <span>car05.jpg</span>
-        </div>
-        <div class="caption">Member Ride #5</div>
-      </div>
-
-      <!-- SLOT 6 -->
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="images/car06.jpg" alt="Member car 6"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="20" width="56" height="28" rx="4"/>
-            <path d="M14 20 l6-10 h24 l6 10"/>
-            <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
-          </svg>
-          <span>car06.jpg</span>
-        </div>
-        <div class="caption">Member Ride #6</div>
-      </div>
-
-      <!-- SLOT 7 -->
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="images/car07.jpg" alt="Member car 7"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="20" width="56" height="28" rx="4"/>
-            <path d="M14 20 l6-10 h24 l6 10"/>
-            <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
-          </svg>
-          <span>car07.jpg</span>
-        </div>
-        <div class="caption">Member Ride #7</div>
-      </div>
-
-      <!-- SLOT 8 -->
-      <div class="gallery-item" onclick="openLightbox(this)">
-        <img src="images/car08.jpg" alt="Member car 8"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="placeholder" style="display:none">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="4" y="20" width="56" height="28" rx="4"/>
-            <path d="M14 20 l6-10 h24 l6 10"/>
-            <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
-          </svg>
-          <span>car08.jpg</span>
-        </div>
-        <div class="caption">Member Ride #8</div>
-      </div>
-
-    </div><!-- /gallery-grid -->
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- JS populates this -->
+    </div>
   </section>
 
   <!-- ── LIGHTBOX ── -->
-  <div id="lightbox" onclick="closeLightbox()">
+  <div id="lightbox" onclick="lbBgClick(event)">
     <div class="lb-close" onclick="closeLightbox()">✕ Close</div>
+    <span class="lb-arrow lb-prev" onclick="lbStep(-1)">&#8249;</span>
     <img id="lb-img" src="" alt="" />
+    <div id="lb-caption"></div>
+    <span class="lb-arrow lb-next" onclick="lbStep(1)">&#8250;</span>
   </div>
 
   <!-- ── FOOTER ── -->
@@ -173,13 +66,95 @@
   </footer>
 
   <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
+    /* ═══════════════════════════════════════════════════════════════
+       ★ ADD YOUR PHOTOS HERE ★
+       Just add as many entries as you like — no limit.
+       - src:     path to your image inside the images/ folder
+       - caption: text shown on hover and in the lightbox
+    ═══════════════════════════════════════════════════════════════ */
+    const GALLERY_IMAGES = [
+      { src: "images/car01.jpg", caption: "Member Ride #1" },
+      { src: "images/car02.jpg", caption: "Member Ride #2" },
+      { src: "images/car03.jpg", caption: "Member Ride #3" },
+      { src: "images/car04.jpg", caption: "Member Ride #4" },
+      { src: "images/car05.jpg", caption: "Member Ride #5" },
+      { src: "images/car06.jpg", caption: "Member Ride #6" },
+      { src: "images/car07.jpg", caption: "Member Ride #7" },
+      { src: "images/car08.jpg", caption: "Member Ride #8" },
+      // ── Keep adding below ──
+      // { src: "images/car09.jpg", caption: "Dave's GT86" },
+      // { src: "images/car10.jpg", caption: "Sarah's EVO" },
+    ];
+    /* ═══════════════════════════════════════════════════════════════ */
 
-    function openLightbox(item) {
-      const img = item.querySelector('img');
-      if (!img || img.style.display === 'none') return; // no real image yet
+    // ── CAR SVG PLACEHOLDER ──
+    const CAR_SVG = `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="4" y="20" width="56" height="28" rx="4"/>
+      <path d="M14 20 l6-10 h24 l6 10"/>
+      <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
+    </svg>`;
+
+    // ── BUILD AUTO-SCROLL STRIP ──
+    const stripTrack = document.getElementById('strip-track');
+
+    function makeStripItem(img, index) {
+      const div = document.createElement('div');
+      div.className = 'strip-item';
+      div.setAttribute('data-index', index);
+      div.innerHTML = `
+        <img src="${img.src}" alt="${img.caption}"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="strip-placeholder" style="display:none">
+          ${CAR_SVG}
+          <span>${img.src.split('/').pop()}</span>
+        </div>`;
+      div.addEventListener('click', () => openLightbox(index));
+      return div;
+    }
+
+    // Fill strip with images × 2 so the seamless loop works
+    GALLERY_IMAGES.forEach((img, i) => stripTrack.appendChild(makeStripItem(img, i)));
+    GALLERY_IMAGES.forEach((img, i) => stripTrack.appendChild(makeStripItem(img, i))); // duplicate
+
+    // Adjust animation speed based on count (more images → a bit faster)
+    const speed = Math.max(20, GALLERY_IMAGES.length * 3.5);
+    stripTrack.style.animationDuration = speed + 's';
+
+    // Hide strip section if no images (all placeholders still show nicely)
+    // but we keep it visible so placeholders animate too.
+
+    // ── BUILD GRID ──
+    const grid = document.getElementById('gallery-grid');
+
+    GALLERY_IMAGES.forEach((img, index) => {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      div.innerHTML = `
+        <img src="${img.src}" alt="${img.caption}"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="placeholder" style="display:none">
+          ${CAR_SVG}
+          <span>${img.src.split('/').pop()}</span>
+        </div>
+        <div class="caption">${img.caption}</div>`;
+      div.addEventListener('click', () => openLightbox(index));
+      grid.appendChild(div);
+    });
+
+    // ── LIGHTBOX ──
+    let currentIndex = 0;
+
+    // Collect only items that have a real loaded image
+    function getLoadedImages() {
+      return GALLERY_IMAGES.map((img, i) => ({ ...img, index: i }));
+    }
+
+    function openLightbox(index) {
+      const img = GALLERY_IMAGES[index];
+      currentIndex = index;
       document.getElementById('lb-img').src = img.src;
-      document.getElementById('lb-img').alt = img.alt;
+      document.getElementById('lb-img').alt = img.caption;
+      document.getElementById('lb-caption').textContent = img.caption;
       document.getElementById('lightbox').classList.add('open');
     }
 
@@ -187,9 +162,24 @@
       document.getElementById('lightbox').classList.remove('open');
     }
 
+    function lbStep(dir) {
+      currentIndex = (currentIndex + dir + GALLERY_IMAGES.length) % GALLERY_IMAGES.length;
+      openLightbox(currentIndex);
+    }
+
+    function lbBgClick(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeLightbox();
+      if (!document.getElementById('lightbox').classList.contains('open')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowRight')  lbStep(1);
+      if (e.key === 'ArrowLeft')   lbStep(-1);
     });
+
+    // ── YEAR ──
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 
 </body>
